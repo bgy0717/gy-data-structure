@@ -1,2 +1,0 @@
-# gy-data-structure
-homework
