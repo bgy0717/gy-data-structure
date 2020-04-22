@@ -59,6 +59,7 @@ int main(void)
 			debugQ(cQ);          //디버그 함수 실행
 			break;
 		case 'q': case 'Q':      //Quit 선택
+			FreeQueue(cQ);       //Queue에 할당된 메모리 해제
 			break;
 		default:                 //선택지 이외의 문자 입력
 			printf("\n       >>>>>   Concentration!!   <<<<<     \n");//에러메세지 출력
@@ -170,3 +171,6 @@ void debugQ(QueueType *cQ) //debug창 표시함수
 }
 
 
+void FreeQueue(QueueType *cQ){ //Queue에 할당된 메모리 해제
+	free(cQ);
+}
