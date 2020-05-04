@@ -123,7 +123,7 @@ int main()
 }
 
 
-int initialize(headNode** h) { 
+int initialize(headNode** h) {  //초기화함수, 함수를 int 타입으로 선언하고 헤드노드의 주소를 직접받아 조작
     if(*h != NULL)    //할당된 메모리가 있으면 초기화
 		freeList(*h);
     *h = (headNode*)malloc(sizeof(headNode)); //헤드노드에 메모리 할당
@@ -174,6 +174,10 @@ void printList(headNode* h) {
  * list에 key에 대한 노드하나를 추가
  */
 int insertLast(headNode* h, int key) {
+	if(item ==0){             //노드가 없으면 insertFirst함수로 실행
+		insertFirst(h, key);
+		return 0;
+	}
 	listNode* node = (listNode*)malloc(sizeof(listNode)); //추가할 노드 메모리 할당
 	node->key = key;   //key값 부여
 	node->rlink = NULL;//마지막 노드로 삽입할 것이므로 rlink에 NULL 연결
@@ -286,6 +290,10 @@ int invertList(headNode* h) {
 
 /* 리스트를 검색하여, 입력받은 key보다 큰값이 나오는 노드 바로 앞에 삽입 */
 int insertNode(headNode* h, int key) {
+	if(item ==0){              //노드가 없으면 insertFirst 함수로 실행
+		insertFirst(h, key);
+		return 0;
+	}
 	listNode* node = (listNode*)malloc(sizeof(listNode)); //추가할 노드에 메모리 할당
 	node->key = key;     //key값을 넣고 link 초기화
 	node->llink = NULL;
