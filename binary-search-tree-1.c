@@ -156,6 +156,10 @@ void postorderTraversal(Node* ptr)
 
 int insert(Node* head, int key)
 {
+    if(head == NULL){  //초기화 안되어있으면 오류메세지 출력
+        printf("Not initialized!!!\n");
+        return 0;
+    }
     Node* temp = head->left;                  //노드포인터
     Node* node = (Node*)malloc(sizeof(node)); //추가할 노드 메모리할당
     node->left = NULL;  //양쪽 링크 NULL
@@ -195,6 +199,10 @@ int insert(Node* head, int key)
 
 int deleteLeafNode(Node* head, int key)
 {
+    if(head == NULL){  //초기화 안되어있으면 오류메세지 출력
+        printf("Not initialized!!!\n");
+        return 0;
+    }
     if(head->left == NULL){   //트리에 노드가 없으면 오류메세지 출력
         printf("No nodes!!\n");
         return 0;
@@ -297,8 +305,3 @@ int freeBST(Node* head)
         return freeBST(head);  //함수 재실행
     }
 }
-
-
-
-
-
